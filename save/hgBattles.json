@@ -1,84 +1,86 @@
 {
   "starts": [
-    "Punches start being thrown!",
-    "A fight to the death begins!",
-    "This will only end with someone dead.",
-    "A fight between rivals!"
+    "¡Empiezan a volar puños!",
+    "¡Ha empezado una lucha a muerte!",
+    "Alguien va a acabar herido... o muerto.",
+    "¡Una lucha entre rivales!"
+    "¡Acaba de empezar una batalla"
+    "¿Alguien ha pedido puños para comer?"
   ],
   "attacks": [
     {
-      "message": "{attacker}, and {victim} fall off a small cliff!",
+      "message": "¡{attacker}, y {victim} se caen por una pendiente!",
       "attacker": { "damage": 1 },
       "victim": { "damage": 1 }
     },
     {
-      "message": "{attacker} kicks {victim} in the rear!",
+      "message": "¡{attacker} pega a {victim} en la espalda!",
       "attacker": { "damage": 0 },
       "victim": { "damage": 1 }
     },
     {
-      "message": "{attacker} knocks a tooth from {victim}'s mouth!",
+      "message": "¡{attacker} le arranca un diente a {victim} de un puñetazo!",
       "attacker": { "damage": 0 },
       "victim": { "damage": 1 }
     },
     {
-      "message": "{attacker} dodges {victim}'s fist, then punches {victim} in the mouth!",
+      "message": "¡{attacker} esquiva el puñetazo de {victim}, después pega a {victim} en la boca!",
       "attacker": { "damage": 0 },
       "victim": { "damage": 1 }
     },
     {
-      "message": "{victim} is knocked down by {attacker}!",
+      "message": "¡{victim} ha sido derribado por {attacker}!",
       "attacker": { "damage": 0 },
       "victim": { "damage": 1 }
     },
     {
-      "message": "{attacker} punches {victim} in the face!",
+      "message": "¡{attacker} golpea a {victim} en la cara!",
       "attacker": { "damage": 0 },
       "victim": { "damage": 1 }
     },
     {
-      "message": "{attacker} lands a hit on {victim}'s gut!",
+      "message": "¡{attacker} golpea en el estómago a {victim}!",
       "attacker": { "damage": 0 },
       "victim": { "damage": 1 }
     },
     {
-      "message": "{attacker} knocks the wind out of {victim} with a punch!",
+      "message": "¡{attacker} está vapuleando a {victim}!",
       "attacker": { "damage": 0 },
       "victim": { "damage": 1 }
     },
     {
-      "message": "{attacker} jabs {victim} in the chest!",
+      "message": "¡{attacker} le rompe la cara a {victim}!",
       "attacker": { "damage": 0 },
       "victim": { "damage": 1 }
     },
     {
-      "message": "{attacker} roundhouse kicks {victim}!",
+      "message": "¡{attacker} salta sobre el pecho de {victim}!",
       "attacker": { "damage": 0 },
       "victim": { "damage": 1 }
     },
     {
-      "message": "{attacker} lunges for {victim}, but {victim} trips {attacker}!",
+      "message": "¡{attacker} intenta agarrar a {victim}, pero {victim} pone la zancadilla a {attacker}!",
       "attacker": { "damage": 1 },
       "victim": { "damage": 0 }
     },
     {
-      "message": "{attacker} stabs {victim} with a knife!",
+      "message": "¡{attacker} apuñala a {victim} con un cuchillo!",
       "attacker": { "damage": 0 },
       "victim": { "damage": 2 }
     },
     {
-      "message": "{victim} blocks {attacker}'s punch!",
+      "message": "¡{victim} para el puñetazo de {attacker}!",
       "attacker": { "damage": 0 },
       "victim": { "damage": 0 }
     }
   ],
   "outcomes": [
-    "{attacker} [Ahas|have] won the battle against {victim}!",
-    "{attacker} [Ahas|have] survived the fight with {victim}.",
-    "{attacker} leave[As|] the fight with bruises, {victim} leave[Vs|] the fight dead.",
-    "{attacker} [Ahas|have] dominated {victim}.",
-    "{attacker} [Ais|are] clearly better than {victim}.",
-    "{attacker} start[As|] t-bagging {victim}.",
-    "{victim} bleed[Vs|] to death as {attacker} walk[As|] away."
+    "¡{attacker} [Aha|han] ganado la batalla contra {victim}!",
+    "{attacker} [Aha|han] sobrevivido a la lucha con {victim}.",
+    "{attacker} [Aabandona|abandonan] la pelea con heridas, {victim} [Vabandona|abandonan] la pelea en un ataud.",
+    "{attacker} [Aha|han] dominado a {victim}.",
+    "{attacker} [Aes|son] claramente mejores que {victim}.",
+    "{attacker} se [Aburla|burlan] de {victim}.",
+    "{victim} se [Vdesangra|desangran] mientras {attacker} [Aabandona|abandonan] la pelea."
   ]
 }
