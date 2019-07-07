@@ -1,7 +1,7 @@
 {
   "bloodbath": [
     {
-      "message": "{attacker} stabs {victim} in the back with a trident!",
+      "message": "¡{attacker} apuñala a {victim} en la espalda con un tridente!",
       "attacker": { "count": "1", "outcome": "nothing", "killer": true},
       "victim": { "count": "-1", "outcome": "dies" }
     },
