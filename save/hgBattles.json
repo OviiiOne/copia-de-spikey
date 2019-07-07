@@ -1,0 +1,84 @@
+{
+  "starts": [
+    "Punches start being thrown!",
+    "A fight to the death begins!",
+    "This will only end with someone dead.",
+    "A fight between rivals!"
+  ],
+  "attacks": [
+    {
+      "message": "{attacker}, and {victim} fall off a small cliff!",
+      "attacker": { "damage": 1 },
+      "victim": { "damage": 1 }
+    },
+    {
+      "message": "{attacker} kicks {victim} in the rear!",
+      "attacker": { "damage": 0 },
+      "victim": { "damage": 1 }
+    },
+    {
+      "message": "{attacker} knocks a tooth from {victim}'s mouth!",
+      "attacker": { "damage": 0 },
+      "victim": { "damage": 1 }
+    },
+    {
+      "message": "{attacker} dodges {victim}'s fist, then punches {victim} in the mouth!",
+      "attacker": { "damage": 0 },
+      "victim": { "damage": 1 }
+    },
+    {
+      "message": "{victim} is knocked down by {attacker}!",
+      "attacker": { "damage": 0 },
+      "victim": { "damage": 1 }
+    },
+    {
+      "message": "{attacker} punches {victim} in the face!",
+      "attacker": { "damage": 0 },
+      "victim": { "damage": 1 }
+    },
+    {
+      "message": "{attacker} lands a hit on {victim}'s gut!",
+      "attacker": { "damage": 0 },
+      "victim": { "damage": 1 }
+    },
+    {
+      "message": "{attacker} knocks the wind out of {victim} with a punch!",
+      "attacker": { "damage": 0 },
+      "victim": { "damage": 1 }
+    },
+    {
+      "message": "{attacker} jabs {victim} in the chest!",
+      "attacker": { "damage": 0 },
+      "victim": { "damage": 1 }
+    },
+    {
+      "message": "{attacker} roundhouse kicks {victim}!",
+      "attacker": { "damage": 0 },
+      "victim": { "damage": 1 }
+    },
+    {
+      "message": "{attacker} lunges for {victim}, but {victim} trips {attacker}!",
+      "attacker": { "damage": 1 },
+      "victim": { "damage": 0 }
+    },
+    {
+      "message": "{attacker} stabs {victim} with a knife!",
+      "attacker": { "damage": 0 },
+      "victim": { "damage": 2 }
+    },
+    {
+      "message": "{victim} blocks {attacker}'s punch!",
+      "attacker": { "damage": 0 },
+      "victim": { "damage": 0 }
+    }
+  ],
+  "outcomes": [
+    "{attacker} [Ahas|have] won the battle against {victim}!",
+    "{attacker} [Ahas|have] survived the fight with {victim}.",
+    "{attacker} leave[As|] the fight with bruises, {victim} leave[Vs|] the fight dead.",
+    "{attacker} [Ahas|have] dominated {victim}.",
+    "{attacker} [Ais|are] clearly better than {victim}.",
+    "{attacker} start[As|] t-bagging {victim}.",
+    "{victim} bleed[Vs|] to death as {attacker} walk[As|] away."
+  ]
+}

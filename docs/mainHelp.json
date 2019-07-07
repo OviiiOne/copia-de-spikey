@@ -1,0 +1,597 @@
+{
+  "title": "Main Commands",
+  "description": "Here's the list of stuff I can do!\nPM SpikeyRobot ({prefix}pmspikey) or join [my Discord server](https://discord.gg/ZbKfYSQ) for questions or just to say hi!\nSee [spikeybot.com](https://www.spikeybot.com/) for examples and more information.\n",
+  "sections": [
+    {
+      "title": "General",
+      "rows": [
+        {
+          "command": "addme",
+          "description": "I will send you a link to add me to your server!",
+          "aliases": "addme, invite",
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "addme",
+              "result": "Replies with a link that will allow you to add the bot to your own server."
+            }
+          ]
+        },
+        {
+          "command": "help",
+          "description": "Send this message to you.",
+          "aliases": "help, commands"
+        },
+        {
+          "command": "say",
+          "description": "Make me say something.",
+          "aliases": "say, echo",
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "say Hello World!",
+              "result": "Your message gets deleted (if the bot has permission to manage messages), and the bot says \"Hello World!\" in the same channel."
+            }
+          ]
+        },
+        {
+          "command": "become",
+          "description": "Create a NPC that replaces everything you say.",
+          "aliases": "become, be, self, character, impersonate",
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "become A Cool NPC https://www.spikeybot.com/SBIcon-128x128.png",
+              "result": "This will create a webhook that will send messages as a bot named 'A Cool NPC' with the linked profile picture, and delete your messages. The profile picture is optional, and can also be uploaded as an attachment to the message with the command. This is disabled by default, you can give permission to use it with the `enable` command (ex: `{prefix}enable become #roleplay`)."
+            },
+            {
+              "description": "Specify Channel",
+              "command": "become A Cool NPC https://www.spikeybot.com/SBIcon-128x128.png #roleplay",
+              "result": "Same as Basic Usage, but creates it in the #roleplay channel."
+            },
+            {
+              "description": "Disable NPC",
+              "command": "self",
+              "result": "Running the command without any arguments, will disable the text replacement."
+            },
+            {
+              "description": "Disable NPC in Channel",
+              "command": "self",
+              "result": "Running the command without any arguments, will disable the text replacement."
+            }
+          ]
+        },
+        {
+          "command": "whois",
+          "description": "List all characters created with `become`.",
+          "aliases": "whois, who",
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "whois",
+              "result": "All characters in all channels will be listed."
+            }
+          ]
+        },
+        {
+          "command": "timer",
+          "description": "Set a timer for a certain number of seconds. The bot will DM you the message at the end. No options lists timers.",
+          "aliases": "timer, timers, remind, reminder, reminders",
+          "examples": [
+            {
+              "description": "1 minute timer with message",
+              "command": "timer 1 It has been one minute!",
+              "result": "After 60 seconds, the bot will send you a direct message saying \"It has been one minute!\"."
+            },
+            {
+              "description": "60 minute timer with message",
+              "command": "timer 60 It has been one hour!",
+              "result": "After 1 hour, the bot will send you a direct message saying \"It has been one hour!\"."
+            },
+            {
+              "description": "2 day timer without message",
+              "command": "timer 2 days",
+              "result": "After 2 days, the bot will send you a direct message saying \"Your timer for 2880 minutes is over!\".\n(s = seconds, m = minutes, h = hours, d = days, w = weeks, mon = mon, or use the whole word for each)"
+            },
+            {
+              "description": "20 minute timer without message",
+              "command": "timer 20",
+              "result": "After 20 minutes, the bot will send you a direct message saying \"Your timer for 20 minutes is over!\"."
+            },
+            {
+              "description": "List current timers",
+              "command": "timer",
+              "result": "Will reply telling you which timers of yours it currently knows about."
+            }
+          ]
+        },
+        {
+          "command": "schedule",
+          "description": "Schedule a command to be run after a certain amount of time.",
+          "aliases": "sch, sched, schedule, scheduled",
+          "examples": [
+            {
+              "description": "List Scheduled Commands",
+              "command": "schedule",
+              "result": "Currently scheduled commands will be listed, and who scheduled the command."
+            },
+            {
+              "description": "Schedule a command for 1 hour",
+              "command": "schedule 1h {prefix}say It has been one hour!",
+              "result": "After 1 hour, the bot will run the {prefix}say command in the channel that you ran your command."
+            },
+            {
+              "description": "Schedule a command for 1 hour",
+              "command": "schedule after 1 hour {prefix}say It has been one hour!",
+              "result": "After 1 hour, the bot will run the {prefix}say command in the channel that you ran your command."
+            },
+            {
+              "description": "Schedule a command in 2 hours, to repeat every week afterwards.",
+              "command": "schedule 2 hours repeat 1 week {prefix}hg autoplay",
+              "result": "In 2 hours, and for every week afterwards, {prefix}hg autoplay will be run."
+            },
+            {
+              "description": "Schedule a command in 2 hours, to repeat every week afterwards.",
+              "command": "schedule after 2 hours, repeat every 1 week {prefix}hg autoplay",
+              "result": "In 2 hours, and for every week afterwards, {prefix}hg autoplay will be run."
+            },
+            {
+              "description": "Cancel a scheduled command",
+              "command": "schedule cancel xyz",
+              "result": "Cancel the scheduled command with the ID of xyz."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Polls and Voting",
+      "rows": [
+        {
+          "command": "poll",
+          "description": "Start a poll or vote in the chat. Each user may only have 1 poll at a time.",
+          "aliases": "poll, vote",
+          "validOnlyInGuild": false,
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "poll Are pigs dirty?",
+              "result": "The bot will begin a poll to find out if pigs are dirty and add reactions for users to vote with by clicking.<br><img src=\"https://res.cloudinary.com/spikeybot/image/upload/v1543363872/dTcufXF.png\">"
+            },
+            {
+              "description": "5 Minute Poll",
+              "command": "poll 5m Who wants a cheesburger?",
+              "result": "After 5 minutes, the bot will show the results from the poll, and delete the original poll. (Use 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days)"
+            },
+            {
+              "description": "Custom Response Options",
+              "command": "poll 1h Which emoji is the best? [💩 Poop is best][🍔 Cheeeezeburgerz][Fly away! ✈]",
+              "result": "💩, 🍔, and ✈ emojis and text will be used as poll options. Up to 25 custom options can be used. After 1 hour, the bot will end the poll. (Only the default unicode emojis are supported).<br><img src=\"https://res.cloudinary.com/spikeybot/image/upload/v1546212266/tQj7Yq2.png\">"
+            }
+          ]
+        },
+        {
+          "command": "endpoll",
+          "description": "End a poll that you created.",
+          "aliases": "endpoll, endvote",
+          "validOnlyInGuild": false,
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "endpoll",
+              "result": "Your current poll will be ended, and the results will be shown."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Games",
+      "rows": [
+        {
+          "command": "uno",
+          "description": "Start a game of UNO! in the server text channels. (Sill in BETA. Sorry if it breaks.)",
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "uno",
+              "result": "Starts a game of UNO with you as the lobby host. Text channels are created for each player that is invited, and one for the lobby channel."
+            },
+            {
+              "description": "Mentioning",
+              "command": "uno @SpikeyRobot",
+              "result": "Starts UNO with @SpikeyRobot."
+            }
+          ]
+        },
+        {
+          "command": "tictactoe",
+          "description": "Play a game of Tic Tac Toe with someone! (Mention someone to challenge them)",
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "tictactoe",
+              "result": "Starts a game of tic-tac-toe in the chat. Second person to make a move becomes player 2."
+            },
+            {
+              "description": "Mentioning",
+              "command": "tictactoe @SpikeyRobot",
+              "result": "Starts a game of tic-tac-toe in the chat and SpikeyRobot will be player 2."
+            }
+          ]
+        },
+        {
+          "command": "connect4",
+          "description": "Start a game of Connect 4 against someone! (Mention someone to challenge them)",
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "connect4",
+              "result": "Starts a game of connect4 in the chat. Second person to make a move becomes player 2."
+            },
+            {
+              "description": "Mentioning",
+              "command": "connect4 @SpikeyRobot",
+              "result": "Starts a game of connect4 in the chat and SpikeyRobot will be player 2."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Random",
+      "rows": [
+        {
+          "command": "flip",
+          "description": "I have an unlimited supply of coins! I will flip one for you!",
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "flip",
+              "result": "Replies with either Heads or Tails as well as an image of such."
+            }
+          ]
+        },
+        {
+          "command": "roll",
+          "description": "Roll dice with any number of sides. Separate multiple numbers with spaces to roll multiple dice.",
+          "aliases": "roll, dice, die, d",
+          "examples": [
+            {
+              "description": "Roll one 6-sided die",
+              "command": "d 6",
+              "result": "Replies with a value between 1 and 6 as if a die with 6 sides had been rolled."
+            },
+            {
+              "description": "Roll two 6-sided dice",
+              "command": "d 6 6",
+              "result": "Replies with a value between 1 and 6 for each die, as well as the total sum of both the rolled values."
+            },
+            {
+              "description": "Roll two 6-sided dice using a multiplier",
+              "command": "d 6x2",
+              "result": "Replies with a value between 1 and 6 for each die, as well as the total sum of both the rolled values."
+            },
+            {
+              "description": "Roll two 6-sided dice using D&D style",
+              "command": "d 2d6",
+              "result": "Replies with a value between 1 and 6 for each die, as well as the total sum of both the rolled values."
+            },
+            {
+              "description": "Roll three 20-sided dice using a multiplier",
+              "command": "d 20x3",
+              "result": "Replies with a value between 1 and 20 for each of the three dice, as well as the sum of all three rolled values."
+            },
+            {
+              "description": "Roll three 20-sided dice using D&D style",
+              "command": "d 3d20",
+              "result": "Replies with a value between 1 and 20 for each of the three dice, as well as the sum of all three rolled values."
+            },
+            {
+              "description": "Roll multiple types of dice",
+              "command": "d 20x3 6x4 10x8",
+              "result": "Rolls 3 20-sided, 4 6-sided and 8 10-sided dice."
+            },
+            {
+              "description": "Roll multiple types of dice using D&D style",
+              "command": "d 3d20 4d6 8d10",
+              "result": "Rolls 3 20-sided, 4 6-sided and 8 10-sided dice."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Math",
+      "rows": [
+        {
+          "command": "add",
+          "description": "Add positive or negative numbers separated by spaces.",
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "add 1 10 100",
+              "result": "The bot will add the 3 numbers and reply with \"111\"."
+            },
+            {
+              "description": "Negative Numbers",
+              "command": "add -1 -10 -100 50",
+              "result": "The bot will add the 4 numbers and reply with \"-61\"."
+            },
+            {
+              "description": "Addition and Subtraction",
+              "command": "add 5+6-2+8",
+              "result": "The bot will add the 4 numbers and reply with \"17\"."
+            }
+          ]
+        },
+        {
+          "command": "simplify",
+          "description": "Simplify an equation with numbers and variables.",
+          "examples": [
+            {
+              "description": "Basic Equation",
+              "command": "simplify 12 + 9 * 6x",
+              "result": "```0 = 54x + 12```"
+            },
+            {
+              "description": "Multiple Variables",
+              "command": "simplify 2x = 14y - 2",
+              "result": "```0 = 14y - 2 * (x + 1)```"
+            },
+            {
+              "description": "Order of Operations",
+              "command": "simplify (8 * 9 + 6 / 2 ^ 3) * 4 = x",
+              "result": "```0 = x - 291```"
+            }
+          ]
+        },
+        {
+          "command": "solve",
+          "description": "Solve an equation for each variable in the equation.",
+          "examples": [
+            {
+              "description": "Basic Equation",
+              "command": "solve 12 + 9 * 6x = 0",
+              "result": "```x = -2/9```"
+            },
+            {
+              "description": "Multiple Variables",
+              "command": "solve 2x = 14y - 2",
+              "result": "```x = 7y - 1<br>y = 1/7x + 1/7```"
+            },
+            {
+              "description": "Order of Operations",
+              "command": "solve (8 * 9 + 6 / (2 ^ 3)) * 4 = x",
+              "result": "```x = 291```<br>Notice: Exponents don't follow order of operations properly, you should surround them in parentheses."
+            }
+          ]
+        },
+        {
+          "command": "evaluate",
+          "description": "Solve a math problem, and convert units.",
+          "aliases": "eval, evaluate",
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "eval 12 + 9 * 6 ^ 2 / 2",
+              "result": "```174```"
+            },
+            {
+              "description": "Convert Units",
+              "command": "eval 1000m / 2s in mi/h",
+              "result": "```1118.468146027201 mi / h```"
+            },
+            {
+              "description": "Convert Angles",
+              "command": "eval 180 degrees in radians",
+              "result": "```3.141592653589793 radians```"
+            },
+            {
+              "description": "Complex Example",
+              "command": "eval (10cm) + ((5ft/s) + (2m/s/s * 3s)) * 4 minutes",
+              "result": "```1.8058599999999998 km```"
+            }
+          ]
+        },
+        {
+          "command": "derive",
+          "description": "Find dy/dx of an equation.",
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "derive 5x^2 + 4x + 2 = y",
+              "result": "```-(10x + 4)```"
+            },
+            {
+              "description": "Harder Problem",
+              "command": "derive x = 10y + 5y^2 + 3",
+              "result": "```-1```"
+            }
+          ]
+        },
+        {
+          "command": "graph",
+          "description": "Graph an equation, Maxes and mins are all optional, but brackets are required.",
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "graph x^2 - 5",
+              "result": "<img src=\"https://res.cloudinary.com/spikeybot/image/upload/v1543363903/CI7UU9p.png\">"
+            },
+            {
+              "description": "User Defined Graph Domain",
+              "command": "graph sin(x / 10) [-40, 40]",
+              "result": "<img src=\"https://res.cloudinary.com/spikeybot/image/upload/v1543363927/cAqBC7E.png\">"
+            },
+            {
+              "description": "User Defined Graph Domain and Range",
+              "command": "graph sin(x / 10) [-40, 40] [-2, 2]",
+              "result": "<img src=\"https://res.cloudinary.com/spikeybot/image/upload/v1543363935/ZX9B7Ru.png\">"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Words",
+      "rows": [
+        {
+          "command": "define",
+          "description": "Lookup the definition to a word.",
+          "aliases": "define, def, definition",
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "define discord",
+              "result": "A reply with a bunch of information about the word will be sent."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Info",
+      "rows": [
+        {
+          "command": "createdate",
+          "description": "I will tell you the date you created your account!",
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "createdate",
+              "result": "The bot will tell you the date you created your account in the Los Angeles timezone."
+            },
+            {
+              "description": "Mentioning",
+              "command": "createdate @SpikeyRobot",
+              "result": "The bot will tell you the date SpikeyRobot created their account in the Los Angeles timezone."
+            }
+          ]
+        },
+        {
+          "command": "joindate",
+          "description": "I will tell you the date you joined the server you sent the message from!",
+          "validOnlyInGuild": false,
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "joindate",
+              "result": "The bot will tell you the date you joined the server where you sent the message, in the Los Angeles timezone."
+            },
+            {
+              "description": "Mentioning",
+              "command": "joindate @SpikeyRobot",
+              "result": "The bot will tell you the date SpikeyRobot joined the server where you sent the message, in the Los Angeles timezone."
+            }
+          ]
+        },
+        {
+          "command": "server",
+          "aliases": "server, serverinfo",
+          "description": "Information about the current server will be sent including links to images.",
+          "validOnlyInGuild": true,
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "server",
+              "result": "The bot will tell you information about the server."
+            }
+          ]
+        },
+        {
+          "command": "pmme",
+          "description": "I will introduce myself to you!",
+          "aliases": "pmme, dmme",
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "pmme",
+              "result": "The bot will send you a direct message giving a brief description about itself."
+            }
+          ]
+        },
+        {
+          "command": "pmspikey",
+          "description": "I will send SpikeyRobot (my creator) your message because you are too shy!",
+          "aliases": "pmspikey, dmspikey",
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "pmspikey You should totally add blockchain to the bot!",
+              "result": "The bot will send a direct message to @SpikeyRobot#0971 telling him to add your ridiculous feature idea."
+            }
+          ]
+        },
+        {
+          "command": "avatar",
+          "description": "Need a better look at your profile pic? I'll show you the original.",
+          "aliases": "avatar, profile",
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "avatar",
+              "result": "Your profile picture will be sent as a reply to your command."
+            },
+            {
+              "description": "Mentioning",
+              "command": "avatar @SpikeyRobot",
+              "result": "SpikeyRobot's profile picture will be sent as a reply to your command."
+            }
+          ]
+        },
+        {
+          "command": "ping",
+          "description": "Want to know what my delay to the server is? I can tell you my ping!",
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "ping",
+              "result": "The bot will reply with the delay in milliseconds between the bot and Discord's server that it is connected to, as well as the 3 previous values."
+            }
+          ]
+        },
+        {
+          "command": "stats",
+          "description": "Displays statistics about the bot and the servers it's on.",
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "stats",
+              "result": "The bot will reply with information about the number of users, number Discord servers (guilds), and similar data."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Patreon",
+      "rows": [
+        {
+          "command": "patreon",
+          "description": "Check your current Patreon status, or get information on how to become a patron.",
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "patreon",
+              "result": ""
+            }
+          ]
+        },
+        {
+          "command": "tts",
+          "description": "Using Google's text-to-speech engine, make the bot say something in your voice channel.",
+          "aliases": "tts, speak",
+          "validOnlyInGuild": false,
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "tts Hello World!",
+              "result": "The bot will join your voice channel and speak \"Hello World\""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

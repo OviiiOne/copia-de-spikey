@@ -1,0 +1,700 @@
+{
+  "title": "Hungry Games",
+  "description": "Use https://www.spikeybot.com/hg/ if commands are too hard.",
+  "prefix": "hg ",
+  "sections": [
+    {
+      "title": "Time Control",
+      "rows": [
+        {
+          "command": "auto",
+          "description": "Automatically start the game and continue until the game is completely over.",
+          "aliases": "autoplay, auto, play, go",
+          "validOnlyInGuild": true,
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "go",
+              "result": "Autoplay is enabled, if a game is not in progress, it will be created and started."
+            }
+          ]
+        },
+        {
+          "command": "pause",
+          "description": "Pause the game and immediately stop sending messages without ending the game entirely.",
+          "validOnlyInGuild": true,
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "pause",
+              "result": "The current day will be paused and can then be resumed with `hg resume` or `hg next`."
+            }
+          ]
+        },
+        {
+          "command": "start",
+          "description": "This will start a game with your settings, but waits until you tell it to start the bloodbath.",
+          "aliases": "start, s",
+          "validOnlyInGuild": true,
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "start",
+              "result": "If you use Autoplay, this isn't necessary. Starts the game, but doesn't start the first day automatically."
+            }
+          ]
+        },
+        {
+          "command": "end",
+          "description": "This will end a game early.",
+          "aliases": "end, abort, stop",
+          "validOnlyInGuild": true,
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "end",
+              "result": "The game will be aborted, and completely stopped and cannot be restarted."
+            }
+          ]
+        },
+        {
+          "command": "next",
+          "description": "Simulate the next day of the Games!",
+          "aliases": "next, nextday, resume",
+          "validOnlyInGuild": true,
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "next"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Game Settings",
+      "rows": [
+        {
+          "command": "create",
+          "description": "You shouldn't need to use this. But it will force a new game to be created, and update players for a new game.",
+          "aliases": "create, c, new",
+          "validOnlyInGuild": true,
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "create"
+            }
+          ]
+        },
+        {
+          "command": "options",
+          "description": "List options if no name, or change the option if you give a name.",
+          "aliases": "options, option, opt, opts, settings, setting, set",
+          "validOnlyInGuild": true,
+          "examples": [
+            {
+              "description": "Show Current Options",
+              "command": "opt",
+              "result": "All changeable options, their current values, and a description will be sent. Change pages by clicking on the reactions."
+            },
+            {
+              "description": "Change a Boolean Option",
+              "command": "opt includeBots true",
+              "result": "Bots will be allowed in the games."
+            },
+            {
+              "description": "Change a Percentage Option",
+              "command": "opt probabilityOfArenaEvent 0.1",
+              "result": "The probability of an arena event will be set to 10%."
+            },
+            {
+              "description": "Change a Object Option",
+              "command": "opt playerOutcomeProbs kill 50",
+              "result": "The relative probability of a player being killed will become 50."
+            }
+          ]
+        },
+        {
+          "command": "rename",
+          "description": "Rename the game to your own custom name. The default is \"{SERVER NAME}'s Hungry Games\". The custom name must be 100 characters or fewer.",
+          "aliases": "rename, name",
+          "validOnlyInGuild": true,
+          "examples": [
+            {
+              "description": "Set a custom name.",
+              "command": "rename My Super Cool Game",
+              "result": "The name of the game will be changed to \"My Super Cool Game\""
+            },
+            {
+              "description": "Remove custom name.",
+              "command": "rename",
+              "result": "The game will return to using the server's name as the name of future games."
+            }
+          ]
+        },
+        {
+          "command": "reset",
+          "description": "Delete data about the Games. Don't choose an option for more info.",
+          "aliases": "reset, clear",
+          "validOnlyInGuild": true,
+          "examples": [
+            {
+              "description": "Show Reset Options",
+              "command": "reset",
+              "result": "Bot will send resettable values and a little info about each."
+            },
+            {
+              "description": "Delete All Data",
+              "command": "reset all",
+              "result": "Bot will delete <strong>all</strong> data about the games in this server. This cannot be undone.<br>(Includes custom game events. When I say <strong>all</strong>, I mean <strong>all</strong> data.)"
+            },
+            {
+              "description": "Delete Events Data",
+              "command": "reset events",
+              "result": "Bot will delete all custom events. This cannot be undone."
+            },
+            {
+              "description": "Delete Current Game Data",
+              "command": "reset current",
+              "result": "Bot will delete all data about the current game that may be paused. This should only be useful if data becomes corrupted."
+            },
+            {
+              "description": "Reset Options",
+              "command": "reset options",
+              "result": "All options will be reset to their default values. This cannot be undone."
+            },
+            {
+              "description": "Reset Teams",
+              "command": "reset teams",
+              "result": "Bot will delete teams and automatically re-create them with the current settings."
+            },
+            {
+              "description": "Reset Included and Excluded Users",
+              "command": "reset users",
+              "result": "Bot will remove all users from both blacklist and whitelist and reset them with the current game settings."
+            },
+            {
+              "description": "Reset Stats and Stat Groups",
+              "command": "reset stats",
+              "result": "Bot will remove and reset all tracked stats and stat groups. All lifetime stats will also be reset."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Player Settings",
+      "rows": [
+        {
+          "command": "players",
+          "description": "This will list all players I currently care about.",
+          "aliases": "players, player, list",
+          "validOnlyInGuild": true,
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "players"
+            }
+          ]
+        },
+        {
+          "command": "exclude",
+          "description": "Prevent someone from being added to the next game.",
+          "aliases": "exclude, remove, exc, ex",
+          "validOnlyInGuild": true,
+          "examples": [
+            {
+              "description": "Exclude a Single User",
+              "command": "exclude @SpikeyRobot",
+              "result": "SpikeyRobot will not participate in the next game that is started. He will not be removed from a game that is currently in progress."
+            },
+            {
+              "description": "Exclude Multiple Users",
+              "command": "exclude @SpikeyRobot @SpikeyBot",
+              "result": "SpikeyRobot and SpikeyBot will not participate in the next game that is started. They will not be removed from a game that is currently in progress."
+            },
+            {
+              "description": "Exclude Everyone",
+              "command": "exclude everyone",
+              "result": "All users will be removed from the next games."
+            },
+            {
+              "description": "Exclude Online Users",
+              "command": "exclude online",
+              "result": "All users who are currently online will be added to the next games (Does not exclude idle or dnd)."
+            },
+            {
+              "description": "Exclude Offline Users",
+              "command": "exclude offline",
+              "result": "All offline users will be removed from the next games."
+            },
+            {
+              "description": "Exclude Idle",
+              "command": "exclude idle",
+              "result": "All users who are currently idle will be removed."
+            },
+            {
+              "description": "Exclude Do Not Disturb",
+              "command": "exclude dnd",
+              "result": "All users who are currently in DND will be removed."
+            },
+            {
+              "description": "Exclude NPCs",
+              "command": "exclude npcs",
+              "result": "All NPCs who are currently included will be removed."
+            }
+          ]
+        },
+        {
+          "command": "include",
+          "description": "Add a person back into the next game.",
+          "aliases": "include, add, inc, in",
+          "validOnlyInGuild": true,
+          "examples": [
+            {
+              "description": "Include a Single User",
+              "command": "include @SpikeyRobot",
+              "result": "SpikeyRobot will participate in the next game that is started. He will not be added to a game that is currently in progress."
+            },
+            {
+              "description": "Include Multiple Users",
+              "command": "include @SpikeyRobot @SpikeyBot",
+              "result": "SpikeyRobot and SpikeyBot will participate in the next game that is started. They will not be added to a game that is currently in progress."
+            },
+            {
+              "description": "Include Everyone",
+              "command": "include everyone",
+              "result": "All users will be added to the next games."
+            },
+            {
+              "description": "Include Online Users",
+              "command": "include online",
+              "result": "All users who are currently online will be added to the next games (Does not include idle or dnd)."
+            },
+            {
+              "description": "Include Offline Users",
+              "command": "include offline",
+              "result": "All offline users will be added to the next games."
+            },
+            {
+              "description": "Include Idle",
+              "command": "include idle",
+              "result": "All users who are currently idle will be added."
+            },
+            {
+              "description": "Include Do Not Disturb",
+              "command": "include dnd",
+              "result": "All users who are currently in DND will be added."
+            },
+            {
+              "description": "Include NPCs",
+              "command": "include npcs",
+              "result": "All NPCs who are currently excluded will be added."
+            }
+          ]
+        },
+        {
+          "command": "react",
+          "description": "Allow players to join a game by adding reactions to a message.",
+          "aliases": "react, reaction, emote, emoji",
+          "validOnlyInGuild": true,
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "react",
+              "result": "A message will be sent, and those who add a reaction to it, will be included in the next game. Everyone else is excluded."
+            },
+            {
+              "description": "Ending Reactions",
+              "command": "react",
+              "result": "There are 2 ways to end the reaction message. Type the command again, or just start the game."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "NPC Settings",
+      "rows": [
+        {
+          "command": "npcs",
+          "description": "This will list all players I currently care about.",
+          "aliases": "npc, ai, npcs, ais, bots, bot",
+          "validOnlyInGuild": true,
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "npcs",
+              "result": "All currently created NPCs will be listed."
+            },
+            {
+              "description": "More Info",
+              "command": "npc That One Cool NPC I Have",
+              "result": "All known information about \"THat One Cool NPC I Have\" will be shown. NPC ID can also be used instead of name."
+            }
+          ]
+        },
+        {
+          "command": "npc exclude",
+          "description": "Prevent an NPC from being added to the next game.",
+          "aliases": "exclude, exc, ex",
+          "validOnlyInGuild": true,
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "npc exclude MyCoolNPC",
+              "result": "The NPC named 'MyCoolNPC' will be removed from future games."
+            },
+            {
+              "description": "NPC ID",
+              "command": "npc exclude NPC707EE794C7D42049",
+              "result": "An NPC with the same ID will not be included in future games."
+            }
+          ]
+        },
+        {
+          "command": "npc include",
+          "description": "Allow an NPC to be added to the next game.",
+          "aliases": "include, inc, in",
+          "validOnlyInGuild": true,
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "npc include MyCoolNPC",
+              "result": "The NPC named 'MyCoolNPC' will be added into future games."
+            },
+            {
+              "description": "NPC ID",
+              "command": "npc include NPC707EE794C7D42049",
+              "result": "An NPC with the same ID will be included in future games."
+            }
+          ]
+        },
+        {
+          "command": "npc create",
+          "description": "Create an NPC.",
+          "aliases": "create, add",
+          "validOnlyInGuild": true,
+          "examples": [
+            {
+              "description": "Create with image URL",
+              "command": "npc create SB 2 https://www.spikeybot.com/SBIcon-128x128.png",
+              "result": "The NPC named 'SB 2' will be created using the image downloaded from spikeybot.com."
+            },
+            {
+              "description": "Create with uploaded image",
+              "command": "npc create New Best Friend",
+              "result": "The NPC named 'New Best Friend' will be created using an image attached to the message. The command is the 'Description' part when uploading an image to Discord."
+            }
+          ]
+        },
+        {
+          "command": "npc delete",
+          "description": "Delete an NPC.",
+          "aliases": "delete, remove",
+          "validOnlyInGuild": true,
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "npc delete MyCoolNPC",
+              "result": "The NPC named 'MyCoolNPC' will be deleted without confirmation. If there are multiple NPCs named MyCoolNPC, the bot will pick one at random. To avoid deleting the wrong one, use the NPC's ID instead."
+            },
+            {
+              "description": "Delete an NPC using its ID",
+              "command": "npc delete NPC707EE794C7D42049",
+              "result": "The NPC with the same ID will be deleted without confirmation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Team Settings",
+      "rows": [
+        {
+          "command": "teams swap",
+          "description": "This will swap two players to the other team.",
+          "validOnlyInGuild": true,
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "team swap @SpikeyRobot @SpikeyBot",
+              "result": "SpikeyRobot will be put on SpikeyBot's Team, and SpikeyBot will be put on SpikeyRobot's original team."
+            }
+          ]
+        },
+        {
+          "command": "teams move",
+          "description": "This will move the first player, to another team. (Ignores teamSize option)",
+          "validOnlyInGuild": true,
+          "examples": [
+            {
+              "description": "Move Using ID",
+              "command": "team move @SpikeyRobot 2",
+              "result": "SpikeyRobot will be put on Team 2 even if the team is full."
+            },
+            {
+              "description": "Move Using Mention",
+              "command": "team move @SpikeyRobot @SpikeyBot",
+              "result": "SpikeyRobot will be put on the team that SpikeyBot is on even if the team is full."
+            }
+          ]
+        },
+        {
+          "command": "teams rename",
+          "description": "Rename a team. Specify its id, or mention someone on a team.",
+          "validOnlyInGuild": true,
+          "examples": [
+            {
+              "description": "Rename Using ID",
+              "command": "team rename 3 The Bestest Team",
+              "result": "Team 3 will be called \"The Bestest Team\"."
+            },
+            {
+              "description": "Rename Using Mention",
+              "command": "team rename @SpikeyRobot The Greatest Team Ever!!!",
+              "result": "The team that SpikeyRobot is on will be called \"The Greatest Team Ever!!!\"."
+            }
+          ]
+        },
+        {
+          "command": "teams randomize",
+          "aliases": "randomize, shuffle",
+          "description": "Randomize who is on what team.",
+          "validOnlyInGuild": true,
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "team randomize",
+              "result": "All teams will be reset, and users will be swapped at random to make entirely new teams."
+            }
+          ]
+        },
+        {
+          "command": "teams reset",
+          "description": "Delete all teams and start over.",
+          "validOnlyInGuild": true,
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "team reset",
+              "result": "All teams will be reset."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Events",
+      "rows": [
+        {
+          "command": "events",
+          "description": "This will list all custom events that could happen in the game. The HG Webview page can be much easier to use.",
+          "aliases": "events, event",
+          "validOnlyInGuild": true,
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "events",
+              "result": "Message with list of all events will be sent. Use arrow reactions to change page, circle arrows to change event type."
+            }
+          ]
+        },
+        {
+          "command": "events add",
+          "description": "Begins process of adding a custom event. Not all event types can be created yet due to the complications of making a UI. The HG Webview page can be much easier to use, and supports more types.",
+          "aliases": "add, create",
+          "validOnlyInGuild": true,
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "event create {victim} [Vis|are] killed by {attacker}!",
+              "result": "Edit the message you sent until the examples look correct to you, then use the reactions on the bot's message to continue event creation."
+            }
+          ]
+        },
+        {
+          "command": "events remove",
+          "description": "Remove a custom event. The number is the number shown in the list of events.",
+          "aliases": "remove, delete",
+          "validOnlyInGuild": true,
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "event delete 10",
+              "result": "Start to delete custom event #10, click the reactions to choose which type of event this was."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Stat Tracking",
+      "rows": [
+        {
+          "command": "stats",
+          "description": "Show all tracked stats about players.",
+          "aliases": "stats, stat, info, me",
+          "validOnlyInGuild": true,
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "stats",
+              "result": "Lifetime, previous game, and the selected group stats for the user who ran the command will be sent."
+            },
+            {
+              "description": "Basic Usage",
+              "command": "stats SpikeyRobot",
+              "result": "Tracked stats for SpikeyRobot will be sent."
+            }
+          ]
+        },
+        {
+          "command": "leaderboard",
+          "description": "Show the top players ordered by stats.",
+          "aliases": "leaderboard, leaderboards, leader, leaders, top, rank, ranks",
+          "validOnlyInGuild": true,
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "top",
+              "result": "The top 10 players all time by number of games won will be shown."
+            },
+            {
+              "description": "Different Stats",
+              "command": "top kills",
+              "result": "Players will be ranked by kills. (Available stats: kills, deaths, wounds, heals, revives, wins, losses, daysAlive, daysDead, daysWounded)"
+            },
+            {
+              "description": "Previous Game Only",
+              "command": "top previous kills",
+              "result": "The previous game stats will be used for ranking player kills."
+            },
+            {
+              "description": "Different Group",
+              "command": "top A37C",
+              "result": "Group with the ID A37C stats will be shown. If a specific stat is not specified, it defaults to number of wins."
+            },
+            {
+              "description": "Number of Players",
+              "command": "top lifetime kills 3",
+              "result": "The top 3 players by number of kills of all time, will be shown."
+            }
+          ]
+        },
+        {
+          "command": "groups",
+          "description": "Show all stat groups. A stat group can be enabled or disabled anytime to allow for collecting stats only when specified.",
+          "aliases": "group, groups, season, seasons, g, gr",
+          "validOnlyInGuild": true,
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "groups",
+              "result": "List all created stat groups. "
+            },
+            {
+              "description": "Create Group",
+              "command": "group new My Cool Stat Group",
+              "result": "A new stat group will be created and is selected by default."
+            },
+            {
+              "description": "Delete Group",
+              "command": "group delete A726",
+              "result": "Delete the group with the ID of A726. This cannot be undone."
+            },
+            {
+              "description": "Rename Group",
+              "command": "group rename A726 Season 2",
+              "result": "Rename group with the ID A726 to 'Season 2'."
+            },
+            {
+              "description": "Select Group",
+              "command": "group select A726",
+              "result": "Set group A726 as the active group to collect stats on."
+            },
+            {
+              "description": "Disable Group",
+              "command": "group select",
+              "result": "Disable the current group so none are being used."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Admin Control",
+      "rows": [
+        {
+          "command": "kill",
+          "description": "This will cause players to end the current or next day as dead.",
+          "aliases": "kill, smite",
+          "validOnlyInGuild": true,
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "kill @SpikeyRobot#0971",
+              "result": "A message will be added to the current day or the next day, that kills SpikeyRobot if he is not already dead."
+            },
+            {
+              "description": "Multiple Players",
+              "command": "kill @SpikeyRobot#0971 @SpikeyBot#4928",
+              "result": "A message will be added to the current day or the next day, that kills SpikeyRobot and SpikeyBot if they are not already dead."
+            },
+            {
+              "description": "Groups of Players",
+              "command": "kill everyone",
+              "result": "All groups that the include and exclude commands support, this also supports (online, offline, idle, dnd, everyone, bots, npcs)."
+            }
+          ]
+        },
+        {
+          "command": "wound",
+          "description": "This will cause players to end the current or next day as wounded.",
+          "aliases": "wound, hurt, damage, stab, punch, slap, injure",
+          "validOnlyInGuild": true,
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "wound @SpikeyRobot#0971",
+              "result": "A message will be added to the current day or the next day, that wounds SpikeyRobot if he is not already wounded."
+            },
+            {
+              "description": "Multiple Players",
+              "command": "wound @SpikeyRobot#0971 @SpikeyBot#4928",
+              "result": "A message will be added to the current day or the next day, that wounds SpikeyRobot and SpikeyBot if they are not already wounded."
+            },
+            {
+              "description": "Groups of Players",
+              "command": "wound everyone",
+              "result": "All groups that the include and exclude commands support, this also supports (online, offline, idle, dnd, everyone, bots, npcs)."
+            }
+          ]
+        },
+        {
+          "command": "heal",
+          "description": "This will cause players to end the current or next day as alive and fully healed.",
+          "aliases": "heal, revive, thrive, resurrect, restore",
+          "validOnlyInGuild": true,
+          "examples": [
+            {
+              "description": "Basic Usage",
+              "command": "heal @SpikeyRobot#0971",
+              "result": "A message will be added to the current day or the next day, that resurrects or heals SpikeyRobot if he is not already fully healed."
+            },
+            {
+              "description": "Multiple Players",
+              "command": "heal @SpikeyRobot#0971 @SpikeyBot#4928",
+              "result": "A message will be added to the current day or the next day, that heals SpikeyRobot and SpikeyBot if they are not already fully healed."
+            },
+            {
+              "description": "Groups of Players",
+              "command": "heal everyone",
+              "result": "All groups that the include and exclude commands support, this also supports (online, offline, idle, dnd, everyone, bots, npcs)."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

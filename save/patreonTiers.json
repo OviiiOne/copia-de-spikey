@@ -1,0 +1,15 @@
+{
+  "100": [
+    "tts:all"
+  ],
+  "300": [
+    "hg:bar_color"
+  ],
+  "500": [
+    "hg:customize_stats",
+    "hg:fun_translators"
+  ],
+  "1000": [
+    "hg:personal_weapon"
+  ]
+}

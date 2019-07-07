@@ -1,0 +1,120 @@
+{
+  "tts:all": {
+    "title": "Text To Speech Language/Dialect",
+    "type": "select",
+    "values": ["en-AU-F", "en-AU-M", "en-GB-F", "en-GB-M", "en-US-F", "en-US-M",
+               "ja-JP-F","pt-BR-F", "pt-BR-M", "pt-PT-F", "pt-PT-M", "es-ES-F",
+               "ko-KR-F", "ko-KR-M", "ru-RU-F", "ru-RU-M"],
+    "default": "en-AU-M"
+  },
+  "hg:bar_color": {
+    "title": "Hungry Games Avatar Bar Color",
+    "type": "color",
+    "default": "0x100000000"
+  },
+  "hg:fun_translators": {
+    "title": "Hungry Games Message Translators",
+    "type": "select",
+    "values": ["disabled", "leet", "mocking", "superscript", "smallcaps"],
+    "hrValues": ["Disabled", "1337 5p34k", "MoCKiNg", "ˢᵘᵖᵉʳˢᶜʳᶦᵖᵗ", "sᴍᴀʟʟᴄᴀᴘs"],
+    "default": "disabled"
+  },
+  "hg:customize_stats": {
+    "title": "Hungry Games Player Statistics",
+    "type": "object",
+    "values": {
+      "strength": {
+        "type": "number",
+        "range": { "min": 0, "max": 10 },
+        "default": 5
+      },
+      "intelligence": {
+        "type": "number",
+        "range": { "min": 0, "max": 10 },
+        "default": 5
+      }
+    }
+  },
+  "hg:personal_weapon": {
+    "title": "Hungry Games Personal Weapon",
+    "type": "object",
+    "values": {
+      "weaponEnabled": {
+        "title": "Use Weapon",
+        "type": "boolean",
+        "default": "false"
+      },
+      "weaponName": {
+        "title": "Weapon Name",
+        "type": "text",
+        "default": "Patron's Rage"
+      },
+      "weaponActions": {
+        "title": "Weapon Actions",
+        "type": "object",
+        "values": {
+          "blow[As|]_up": {
+            "title": "Blow up",
+            "type": "boolean",
+            "default": "true"
+          },
+          "kill[As|]": {
+            "title": "Kill",
+            "type": "boolean",
+            "default": "true"
+          },
+          "miss[Aes|]": {
+            "title": "Miss",
+            "type": "boolean",
+            "default": "false"
+          },
+          "miss[Aes|]_their_shot_at": {
+            "title": "Miss your shot",
+            "type": "boolean",
+            "default": "false"
+          },
+          "shoot[As|]": {
+            "title": "Shoot",
+            "type": "boolean",
+            "default": "false"
+          },
+          "stab[As|]": {
+            "title": "Stab",
+            "type": "boolean",
+            "default": "true"
+          },
+          "slice[As|]": {
+            "title": "Slice",
+            "type": "boolean",
+            "default": "true"
+          },
+          "strangle[As|]": {
+            "title": "Strangle",
+            "type": "boolean",
+            "default": "true"
+          },
+          "cut[As|]": {
+            "title": "Cut",
+            "type": "boolean",
+            "default": "true"
+          },
+          "poison[As|]": {
+            "title": "Poison",
+            "type": "boolean",
+            "default": "false"
+          },
+          "skewer[As|]": {
+            "title": "Skewer",
+            "type": "boolean",
+            "default": "false"
+          },
+          "wound[As|]": {
+            "title": "Wound",
+            "type": "boolean",
+            "default": "true"
+          }
+        }
+      }
+    }
+  }
+}
